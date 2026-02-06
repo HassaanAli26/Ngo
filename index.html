@@ -3,88 +3,269 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>داتا والے فاؤنڈیشن</title>
+<title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb}
+body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#222}
 
 /* ===== NAVBAR ===== */
-.navbar{background:#fff;display:flex;justify-content:space-between;
-align-items:center;padding:12px 30px;box-shadow:0 4px 12px rgba(0,0,0,.1);
-position:sticky;top:0;z-index:999}
+.navbar{
+  background:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 26px;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+  position:sticky;top:0;z-index:999
+}
 .nav-left{display:flex;align-items:center;gap:12px}
 .logo{height:70px}
-.brand{font-weight:800;font-size:22px}
+.brand{font-weight:900;font-size:22px}
 .location{color:#2e7d32;font-weight:700}
-nav a{margin:0 12px;text-decoration:none;color:#222;font-weight:600;cursor:pointer}
-.lang-btn{background:#00c853;color:#fff;border:none;padding:6px 14px;border-radius:6px}
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  color:#222;
+  font-weight:700;
+  cursor:pointer
+}
+.lang-btn{
+  background:#00c853;
+  color:#fff;
+  border:none;
+  padding:6px 14px;
+  border-radius:6px;
+  cursor:pointer
+}
 
 /* ===== HERO ===== */
-.hero{background:linear-gradient(rgba(0,80,140,.7),rgba(0,80,140,.7)),
-url('/images/hero.jpg') center/cover;color:#fff;padding:80px 20px}
-.hero h1{font-size:42px;font-weight:800}
+.hero{
+  background:linear-gradient(rgba(0,80,140,.7),rgba(0,80,140,.7)),
+  url('/images/hero.jpg') center/cover no-repeat;
+  color:#fff;
+  padding:80px 20px
+}
+.hero-inner{max-width:1100px;margin:auto}
+.hero h1{font-size:42px;font-weight:900}
 .hero p{font-size:20px;margin-top:10px}
 .hero-buttons{margin-top:25px;display:flex;gap:15px}
-.btn{padding:14px 30px;border:none;border-radius:8px;font-weight:700;cursor:pointer}
+.btn{
+  padding:14px 30px;
+  border:none;
+  border-radius:8px;
+  font-weight:800;
+  cursor:pointer
+}
 .btn-red{background:#e53935;color:#fff}
 .btn-green{background:#43a047;color:#fff}
 
 /* ===== STATS ===== */
-.stats{display:flex;justify-content:space-around;background:#fff;padding:30px}
-.stat span{font-size:36px;font-weight:800;color:#1b5e20}
+.stats{
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:30px 20px;
+}
+.stat{text-align:center}
+.stat span{
+  display:block;
+  font-size:36px;
+  font-weight:900;
+  color:#1b5e20
+}
+
+/* ===== MOBILE STATS FIX ===== */
+@media(max-width:768px){
+  .stats{
+    flex-direction:row;
+    justify-content:space-between;
+    padding:20px 10px
+  }
+  .stat{flex:1}
+  .stat span{font-size:32px}
+}
 
 /* ===== SERVICES ===== */
-.services{max-width:1100px;margin:60px auto;padding:0 20px}
-.services h2{text-align:center;font-size:32px;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#fff;border-radius:14px;overflow:hidden;
-box-shadow:0 6px 18px rgba(0,0,0,.1);
-transition:.3s}
-.card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(0,0,0,.2)}
-.card img{width:100%;height:170px;object-fit:cover}
-.card h3{text-align:center;padding:14px}
+.services{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 20px
+}
+.services h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px
+}
+.card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+  transition:.4s
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(0,0,0,.25)
+}
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+  object-position:center top; /* FACE FIX */
+}
+.card h3{
+  padding:15px;
+  font-size:18px;
+  text-align:center
+}
 
 /* ===== DONATE STRIP ===== */
-.donate-strip{background:linear-gradient(135deg,#00c853,#00e676);
-color:#fff;text-align:center;padding:70px 20px}
+.donate-strip{
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:#fff;
+  text-align:center;
+  padding:70px 20px
+}
 .donate-strip h2{font-size:32px;margin-bottom:20px}
-.donate-btn{background:#fff;color:#00a152;
-padding:18px 46px;border:none;border-radius:50px;
-font-size:22px;font-weight:800;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-cursor:pointer}
+.donate-btn{
+  background:#fff;
+  color:#00a152;
+  padding:18px 48px;
+  font-size:22px;
+  font-weight:900;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.35)
+}
 
 /* ===== MODAL ===== */
-.modal{display:none;position:fixed;inset:0;
-background:rgba(0,0,0,.85);
-align-items:center;justify-content:center;
-z-index:2000}
-.modal-box{background:#081b2f;color:#fff;
-width:90%;max-width:430px;
-border-radius:18px;padding:25px;
-animation:pop .4s ease}
-@keyframes pop{from{transform:scale(.7);opacity:0}
-to{transform:scale(1);opacity:1}}
-.close{position:absolute;right:18px;top:12px;font-size:26px;cursor:pointer}
-.payments{display:flex;gap:15px;margin-top:25px}
-.pay-card{flex:1;background:#041423;padding:18px;
-border-radius:14px;cursor:pointer}
-.pay-card img{width:70px;margin-bottom:10px}
-.details{display:none;margin-top:20px;
-background:#041423;padding:15px;border-radius:12px}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.85);
+  align-items:center;
+  justify-content:center;
+  z-index:2000
+}
+.modal-box{
+  background:#081b2f;
+  color:#fff;
+  width:90%;
+  max-width:440px;
+  border-radius:20px;
+  padding:25px;
+  position:relative;
+  animation:pop .4s ease;
+  border:1px solid rgba(255,255,255,.1);
+  box-shadow:
+    0 0 30px rgba(0,255,150,.4),
+    0 0 80px rgba(0,150,255,.2)
+}
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+.close{
+  position:absolute;
+  right:18px;
+  top:12px;
+  font-size:26px;
+  cursor:pointer
+}
+
+/* Charity icon */
+.charity-icon{
+  font-size:46px;
+  margin-bottom:8px;
+  animation:pulse 2s infinite
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.1)}
+  100%{transform:scale(1)}
+}
+
+.payments{
+  display:flex;
+  gap:15px;
+  margin-top:20px
+}
+.pay-card{
+  flex:1;
+  background:linear-gradient(145deg,#0b2540,#041423);
+  padding:18px;
+  border-radius:16px;
+  cursor:pointer;
+  text-align:center;
+  box-shadow:
+    inset 0 0 10px rgba(255,255,255,.05),
+    0 15px 40px rgba(0,0,0,.6);
+  transition:.4s;
+}
+.pay-card:hover{
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 25px 60px rgba(0,0,0,.85)
+}
+.pay-card img{width:70px;margin-bottom:8px}
+
+.details{
+  display:none;
+  margin-top:20px;
+  background:#041423;
+  padding:16px;
+  border-radius:14px
+}
+.details img{
+  width:100%;
+  border-radius:12px;
+  margin-top:10px
+}
+.details button{
+  width:100%;
+  margin-top:12px;
+  padding:12px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(135deg,#00c853,#00e5ff);
+  color:#003;
+  font-weight:900;
+  letter-spacing:.5px;
+  cursor:pointer;
+  box-shadow:0 8px 25px rgba(0,255,200,.6);
+  transition:.3s
+}
+.details button:hover{
+  transform:scale(1.05);
+  box-shadow:0 12px 40px rgba(0,255,200,.9)
+}
 
 /* ===== CONTACT ===== */
-.contact{background:linear-gradient(135deg,#0b5ed7,#00c853);
-color:#fff;text-align:center;padding:80px 20px}
-.contact h2{font-size:36px;margin-bottom:20px}
-.contact a{color:#fff;text-decoration:none;font-weight:700}
+.contact{
+  background:linear-gradient(135deg,#0b5ed7,#00c853);
+  color:#fff;
+  text-align:center;
+  padding:80px 20px
+}
+.contact h2{font-size:36px;margin-bottom:18px}
+.contact a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:800
+}
 
 /* ===== MOBILE ===== */
 @media(max-width:768px){
-nav{display:none}
-.hero h1{font-size:30px}
-.stats{flex-direction:column;gap:20px}
+  nav{display:none}
+  .hero h1{font-size:30px}
+  .hero p{font-size:18px}
 }
 </style>
 </head>
@@ -109,11 +290,13 @@ nav{display:none}
 </header>
 
 <section class="hero" id="hero">
-  <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
-  <p>Data Waly Foundation – Non Profit Organization</p>
-  <div class="hero-buttons">
-    <button class="btn btn-red" onclick="openDonate()">عطیہ دیں</button>
-    <button class="btn btn-green" onclick="scrollServices()">مدد حاصل کریں</button>
+  <div class="hero-inner">
+    <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
+    <p>Data Waly Foundation – Non Profit Organization</p>
+    <div class="hero-buttons">
+      <button class="btn btn-red" onclick="openDonate()">عطیہ دیں</button>
+      <button class="btn btn-green" onclick="scrollServices()">مدد حاصل کریں</button>
+    </div>
   </div>
 </section>
 
@@ -124,56 +307,59 @@ nav{display:none}
 </section>
 
 <section class="services" id="services">
-<h2>ہماری خدمات</h2>
-<div class="grid">
-<div class="card"><img src="/images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
-<div class="card"><img src="/images/medical.jpg"><h3>مفت طبی علاج</h3></div>
-<div class="card"><img src="/images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
-<div class="card"><img src="/images/education.jpg"><h3>تعلیمی معاونت</h3></div>
-<div class="card"><img src="/images/dastarkhwan.jpg"><h3>دسترخوان (راشن و کھانا)</h3></div>
-<div class="card"><img src="/images/ambulance.jpg"><h3>فری ایمبولینس سروس</h3></div>
-</div>
+  <h2>ہماری خدمات</h2>
+  <div class="grid">
+    <div class="card"><img src="/images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
+    <div class="card"><img src="/images/medical.jpg"><h3>مفت طبی علاج</h3></div>
+    <div class="card"><img src="/images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
+    <div class="card"><img src="/images/education.jpg"><h3>تعلیمی معاونت</h3></div>
+    <div class="card"><img src="/images/dastarkhwan.jpg"><h3>دسترخوان (راشن و کھانا)</h3></div>
+    <div class="card"><img src="/images/ambulance.jpg"><h3>فری ایمبولینس سروس</h3></div>
+  </div>
 </section>
 
 <section class="donate-strip" id="donate">
-<h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
-<button class="donate-btn" onclick="openDonate()">Donate Now</button>
+  <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
+  <button class="donate-btn" onclick="openDonate()">Donate Now</button>
 </section>
 
 <div class="modal" id="donateModal">
-<div class="modal-box">
-<span class="close" onclick="closeDonate()">×</span>
-<h3>Support Our Cause ❤️</h3>
+  <div class="modal-box">
+    <span class="close" onclick="closeDonate()">×</span>
+    <div class="charity-icon">🥣👩‍👧</div>
+    <h3>Support Our Cause ❤️</h3>
 
-<div class="payments">
-<div class="pay-card" onclick="showJazz()">
-<img src="/images/jazzcash.png"><p>JazzCash</p>
-</div>
-<div class="pay-card" onclick="showBank()">
-<img src="/images/bank.png"><p>Bank / IBAN</p>
-</div>
-</div>
+    <div class="payments">
+      <div class="pay-card" onclick="showJazz()">
+        <img src="/images/jazzcash.png">
+        <p>JazzCash</p>
+      </div>
+      <div class="pay-card" onclick="showBank()">
+        <img src="/images/bank.png">
+        <p>Bank / IBAN</p>
+      </div>
+    </div>
 
-<div id="jazz" class="details">
-<p><b>Account Title:</b> Data Waly Foundation</p>
-<p><b>Till ID:</b> 982 351 540</p>
-<img src="/images/jazz-qr.png" style="width:100%;margin-top:10px">
-<button onclick="sendWA('JazzCash')">Send Receipt on WhatsApp</button>
-</div>
+    <div id="jazz" class="details">
+      <p><b>Account Title:</b> Data Waly Foundation</p>
+      <p><b>Mobile:</b> 0301-7211194</p>
+      <p><b>Till ID:</b> 982 351 540</p>
+      <img src="/images/jazz-qr.png">
+      <button onclick="sendWA('JazzCash')">Send Receipt on WhatsApp</button>
+    </div>
 
-<div id="bank" class="details">
-<p><b>Title:</b> Data Waly Foundation</p>
-<p><b>IBAN:</b> PK22JCMA1901921017211194</p>
-<button onclick="sendWA('Bank Transfer')">Send Receipt on WhatsApp</button>
-</div>
-
-</div>
+    <div id="bank" class="details">
+      <p><b>Account Title:</b> Data Waly Foundation</p>
+      <p><b>IBAN:</b> PK22JCMA1901921017211194</p>
+      <button onclick="sendWA('Bank Transfer')">Send Receipt on WhatsApp</button>
+    </div>
+  </div>
 </div>
 
 <section class="contact" id="contact">
-<h2>Contact Us</h2>
-<p>📞 <a href="https://wa.me/923017211194">+92 301 7211194</a></p>
-<p>📧 <a href="mailto:datawalyfoundation@gmail.com">datawalyfoundation@gmail.com</a></p>
+  <h2>Contact Us</h2>
+  <p>📞 <a href="https://wa.me/923017211194">+92 301 7211194</a></p>
+  <p>📧 <a href="mailto:datawalyfoundation@gmail.com">datawalyfoundation@gmail.com</a></p>
 </section>
 
 <script>
@@ -185,20 +371,20 @@ function scrollContact(){contact.scrollIntoView({behavior:'smooth'})}
 function scrollServices(){services.scrollIntoView({behavior:'smooth'})}
 function scrollHero(){hero.scrollIntoView({behavior:'smooth'})}
 function sendWA(type){
-let msg=`Assalamualaikum,\nI donated via ${type}.\nData Waly Foundation`;
-window.open("https://wa.me/923017211194?text="+encodeURIComponent(msg));
+  const msg=`Assalamualaikum,%0AI donated via ${type}.%0AData Waly Foundation`;
+  window.open("https://wa.me/923017211194?text="+msg,"_blank");
 }
 
-/* COUNTER */
+/* COUNTER ANIMATION */
 document.querySelectorAll('.counter').forEach(c=>{
-const t=+c.dataset.target;
-let i=0;
-const step=Math.ceil(t/50);
-const run=setInterval(()=>{
-i+=step;
-if(i>=t){c.innerText=t;clearInterval(run)}
-else c.innerText=i;
-},40);
+  const t=+c.dataset.target;
+  let i=0;
+  const step=Math.ceil(t/50);
+  const run=setInterval(()=>{
+    i+=step;
+    if(i>=t){c.innerText=t;clearInterval(run)}
+    else c.innerText=i;
+  },40);
 });
 </script>
 
