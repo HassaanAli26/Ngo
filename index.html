@@ -1,121 +1,262 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
-<title>Data Waly Foundation</title>
-<link rel="stylesheet" href="donate.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Waly Foundation | ڈیٹا والی فاؤنڈیشن</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial, sans-serif;
+  background:#f5f7fb;
+  color:#222;
+}
+
+/* HEADER */
+header{
+  background:#fff;
+  padding:12px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+header img{height:55px}
+
+/* HERO */
+.hero{
+  background:
+   linear-gradient(rgba(0,80,140,.75),rgba(0,80,140,.75)),
+   url('/images/hero.jpg') center/cover no-repeat;
+  color:#fff;
+  padding:70px 20px;
+}
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+}
+.hero h1{
+  font-size:42px;
+  font-weight:800;
+}
+.hero p{
+  font-size:22px;
+  margin-top:12px;
+}
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
+.btn{
+  padding:14px 28px;
+  font-size:16px;
+  font-weight:700;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn-red{background:#e53935;color:#fff}
+.btn-green{background:#43a047;color:#fff}
+
+/* STATS */
+.stats{
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:30px 20px;
+}
+.stat span{
+  font-size:32px;
+  font-weight:800;
+  color:#1b5e20;
+  display:block;
+}
+
+/* SERVICES */
+.services{
+  max-width:1100px;
+  margin:50px auto;
+  padding:0 20px;
+}
+.services h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:30px;
+}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+.card h3{
+  padding:15px;
+  font-size:18px;
+  text-align:center;
+}
+
+/* DONATION STRIP */
+.donate-strip{
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:#fff;
+  text-align:center;
+  padding:60px 20px;
+}
+.donate-strip h2{
+  font-size:32px;
+  margin-bottom:20px;
+}
+.donate-btn{
+  background:#fff;
+  color:#00a152;
+  padding:18px 46px;
+  font-size:22px;
+  font-weight:800;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+/* MODAL */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.modal-box{
+  background:#081b2f;
+  color:#fff;
+  width:90%;
+  max-width:420px;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+}
+.close{
+  position:absolute;
+  right:25px;
+  top:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+.payments{
+  display:flex;
+  gap:15px;
+  margin-top:20px;
+}
+.pay-card{
+  flex:1;
+  background:#041423;
+  border-radius:14px;
+  padding:18px;
+}
+.pay-card img{
+  width:70px;
+  margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .hero h1{font-size:30px}
+  .hero p{font-size:18px}
+  .stats{flex-direction:column;gap:20px;text-align:center}
+}
+</style>
 </head>
 
 <body>
 
-<!-- HERO CTA -->
-<section class="cta">
-  <h2>Your donation can change someone’s life</h2>
-  <button class="donate-cta" onclick="openDonate()">Donate Now</button>
+<header>
+  <img src="/images/logo.png" alt="Data Waly Foundation">
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
+      <p>Data Waly Foundation – ڈیٹا والی فاؤنڈیشن</p>
+      <div class="hero-buttons">
+        <button class="btn btn-red">عطیہ دیں</button>
+        <button class="btn btn-green">مدد حاصل کریں</button>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- DONATION MODAL -->
-<div id="donateModal" class="modal">
-  <div class="modal-box">
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><span class="counter" data-target="500">0</span> شادیاں</div>
+  <div class="stat"><span class="counter" data-target="10000">0</span> علاج</div>
+  <div class="stat"><span class="counter" data-target="3000">0</span> طلباء</div>
+</section>
 
+<!-- SERVICES -->
+<section class="services">
+  <h2>ہماری خدمات</h2>
+  <div class="service-grid">
+    <div class="card"><img src="/images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
+    <div class="card"><img src="/images/medical.jpg"><h3>مفت طبی علاج</h3></div>
+    <div class="card"><img src="/images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
+    <div class="card"><img src="/images/education.jpg"><h3>تعلیمی معاونت</h3></div>
+    <div class="card"><img src="/images/education.jpg"><h3>دسترخوان (راشن و کھانا)</h3></div>
+  </div>
+</section>
+
+<!-- DONATE -->
+<section class="donate-strip">
+  <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
+  <button class="donate-btn" onclick="openDonate()">Donate Now</button>
+</section>
+
+<!-- DONATE MODAL -->
+<div class="modal" id="donateModal">
+  <div class="modal-box">
     <span class="close" onclick="closeDonate()">×</span>
     <h3>Support Our Cause ❤️</h3>
-
-    <div class="donation-cards">
-      <div class="donation-card glow-green" onclick="showJazz()">
+    <div class="payments">
+      <div class="pay-card">
         <img src="/images/jazzcash.png">
         <p>JazzCash</p>
       </div>
-
-      <div class="donation-card glow-blue" onclick="showBank()">
+      <div class="pay-card">
         <img src="/images/bank.png">
         <p>Bank / IBAN</p>
       </div>
     </div>
-
-    <!-- JazzCash -->
-    <div id="jazzBox" class="details">
-      <img src="/images/jazzcash.png">
-      <p><b>Account:</b> Data Waly Foundation</p>
-      <p><b>Till ID :</b> 982 351 540</p>
-      <button onclick="openQR()">Show QR</button>
-      <button onclick="sendWhatsApp('JazzCash')">Send Receipt</button>
-    </div>
-
-    <!-- Bank -->
-    <div id="bankBox" class="details">
-      <img src="/images/bank.png">
-      <p><b>Account:</b> Data Waly Foundation</p>
-      <p><b>IBAN:</b> PK22JCMA190192101721194</p>
-      <p><b>Bank:</b> Mobilink (JazzCash Bank)</p>
-      <button onclick="copyIBAN()">Copy IBAN</button>
-      <button onclick="sendWhatsApp('Bank Transfer')">Send Receipt</button>
-    </div>
-
   </div>
 </div>
-
-<!-- QR MODAL -->
-<div id="qrModal" class="modal">
-  <div class="modal-box">
-    <span class="close" onclick="closeQR()">×</span>
-    <h3>Scan to Donate</h3>
-    <img src="/images/jazz-qr.png" class="qr">
-  </div>
-</div>
-
-<!-- COUNTERS -->
-<section class="stats">
-  <div><span class="counter" data-target="9">0</span>+ Marriages</div>
-  <div><span class="counter" data-target="18">0</span>+ Treatments</div>
-  <div><span class="counter" data-target="50">0</span>+ Students</div>
-</section>
 
 <script>
-// MODALS
-function openDonate(){ donateModal.style.display="flex"; }
-function closeDonate(){ donateModal.style.display="none"; }
+function openDonate(){document.getElementById('donateModal').style.display='flex'}
+function closeDonate(){document.getElementById('donateModal').style.display='none'}
 
-function openQR(){ qrModal.style.display="flex"; }
-function closeQR(){ qrModal.style.display="none"; }
-
-// TOGGLES
-function showJazz(){
-  jazzBox.style.display="block";
-  bankBox.style.display="none";
-}
-function showBank(){
-  bankBox.style.display="block";
-  jazzBox.style.display="none";
-}
-
-// IBAN COPY
-function copyIBAN(){
-  navigator.clipboard.writeText("PK22JCMA190192101721194");
-  alert("IBAN Copied");
-}
-
-// WHATSAPP RECEIPT
-function sendWhatsApp(method){
-  let msg = `Assalamualaikum,%0A%0AI donated via ${method}.%0AAccount: Data Waly Foundation`;
-  window.open(`https://wa.me/923017211194?text=${msg}`);
-}
-
-// COUNTER ANIMATION
-const counters = document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-  const update = ()=>{
-    const target = +counter.dataset.target;
-    const c = +counter.innerText;
-    const inc = target/100;
-    if(c < target){
-      counter.innerText = Math.ceil(c+inc);
-      setTimeout(update,30);
-    }else{
-      counter.innerText = target;
-    }
-  };
-  update();
+document.querySelectorAll('.counter').forEach(c=>{
+  let t=+c.dataset.target,i=0;
+  let int=setInterval(()=>{
+    i+=Math.ceil(t/100);
+    if(i>=t){c.innerText=t;clearInterval(int)}
+    else c.innerText=i;
+  },20);
 });
 </script>
 
