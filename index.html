@@ -3,317 +3,106 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
-
-<style>
-/* ===== RESET ===== */
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui}
-body{background:#f4f7f8;color:#222;overflow-x:hidden}
-
-/* ===== HEADER ===== */
-header{
-  background:#fff;
-  padding:10px 16px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  box-shadow:0 2px 10px rgba(0,0,0,.05)
-}
-.logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.logo img{height:46px}
-.logo-text{
-  font-weight:700;
-  font-size:15px;
-}
-.loc{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  color:#00c98d;
-  text-shadow:0 0 6px rgba(0,200,140,.6);
-  font-size:14px;
-}
-nav a{
-  text-decoration:none;
-  margin:0 8px;
-  color:#333;
-  font-size:14px;
-}
-.lang-btn{
-  background:#00c98d;
-  color:#fff;
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:12px;
-  cursor:pointer;
-}
-
-/* ===== HERO ===== */
-.hero{
-  background:
-  linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-  url("https://images.unsplash.com/photo-1604881991720-f91add269bed");
-  background-size:cover;
-  background-position:center;
-  padding:70px 16px;
-  text-align:center;
-  color:#fff;
-}
-.hero h1{font-size:26px;margin-bottom:8px}
-.hero p{opacity:.9;font-size:14px}
-.hero-btns{
-  margin-top:18px;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-}
-.btn{
-  padding:10px 20px;
-  border-radius:30px;
-  border:none;
-  cursor:pointer;
-  font-size:14px;
-}
-.btn.green{background:#00c98d;color:#fff}
-.btn.red{background:#e74c3c;color:#fff}
-
-/* ===== STATS ===== */
-.stats{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:30px 10px;
-  background:#fff;
-}
-.stats div{text-align:center}
-.stats span{
-  font-size:32px;
-  color:#00c98d;
-  font-weight:700;
-}
-.stats p{font-size:14px}
-
-/* ===== SERVICES ===== */
-.section-title{
-  text-align:center;
-  font-size:22px;
-  margin:30px 0 15px;
-}
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:16px;
-  padding:0 16px;
-}
-.card{
-  background:#fff;
-  border-radius:16px;
-  overflow:hidden;
-  box-shadow:0 8px 20px rgba(0,0,0,.06);
-}
-.card img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  object-position:center top;
-}
-.card h3{
-  padding:14px;
-  font-size:16px;
-  text-align:center;
-}
-
-/* ===== CTA ===== */
-.cta{
-  background:linear-gradient(135deg,#00c98d,#00a8ff);
-  padding:40px 16px;
-  text-align:center;
-  color:#fff;
-  margin-top:30px;
-}
-.cta button{
-  margin-top:14px;
-  background:#fff;
-  color:#00a8ff;
-  padding:10px 26px;
-  border:none;
-  border-radius:30px;
-  font-size:14px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#0d2b3a;
-  color:#fff;
-  padding:30px 16px;
-  text-align:center;
-}
-.contact-line{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:8px;
-  margin-top:10px;
-  font-size:14px;
-}
-.contact-line svg{
-  width:18px;
-  filter:drop-shadow(0 0 6px #00eaff);
-}
-
-/* ===== MODAL ===== */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:none;
-  align-items:center;
-  justify-content:center;
-}
-.modal-box{
-  background:#0d2b3a;
-  color:#fff;
-  padding:20px;
-  width:90%;
-  max-width:360px;
-  border-radius:20px;
-  text-align:center;
-}
-.pay-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:12px;
-  margin:14px 0;
-}
-.pay-box{
-  background:#123f55;
-  padding:14px;
-  border-radius:14px;
-  font-size:13px;
-}
-
-/* ===== MOBILE FIX ===== */
-@media(max-width:768px){
-  .stats{flex-direction:column;gap:16px}
-  nav{width:100%;margin-top:6px;text-align:center}
-}
-</style>
+<title>Data Waly Foundation</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<header>
-  <div class="logo">
-    <img src="https://i.imgur.com/0Xn0K0J.png">
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-left">
+    <img src="images/logo.png" class="logo">
     <div>
-      <div class="logo-text">داتا والے فاؤنڈیشن</div>
-      <div class="loc">
-        <svg viewBox="0 0 24 24"><path fill="#00ff9d" d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7z"/></svg>
-        Sahiwal
-      </div>
+      <h1>داتا والے فاؤنڈیشن</h1>
+      <span class="en">Data Waly Foundation</span>
+      <p class="loc"><img src="icons/location.svg"> Sahiwal</p>
     </div>
   </div>
 
   <nav>
-    <a href="#">Home</a>
+    <a href="#home">Home</a>
     <a href="#services">Services</a>
-    <a href="#" onclick="openDonate()">Donate</a>
+    <a href="#donate" onclick="openDonate()">Donate</a>
     <a href="#contact">Contact</a>
+    <button id="langBtn">EN</button>
   </nav>
-
-  <div class="lang-btn" onclick="toggleLang()">EN</div>
 </header>
 
-<section class="hero">
-  <h1 id="heroTitle">غریبوں کی خدمت، عزت کے ساتھ</h1>
-  <p>Data Waly Foundation – Non Profit Organization</p>
-  <div class="hero-btns">
-    <button class="btn green">مدد حاصل کریں</button>
-    <button class="btn red" onclick="openDonate()">عطیہ دیں</button>
+<!-- HERO -->
+<section class="hero" id="home">
+  <img src="images/hero.jpg">
+  <div class="hero-text">
+    <h2 data-ur="غریبوں کی خدمت، عزت کے ساتھ"
+        data-en="Serving Humanity With Dignity">
+    </h2>
+    <p>Data Waly Foundation – Non Profit Organization</p>
+
+    <div class="hero-btns">
+      <button class="green">مدد حاصل کریں</button>
+      <button class="red" onclick="openDonate()">عطیہ دیں</button>
+    </div>
   </div>
 </section>
 
+<!-- COUNTERS -->
 <section class="stats">
-  <div><span class="count" data-target="53">0</span><p>طلباء</p></div>
-  <div><span class="count" data-target="30">0</span><p>علاج</p></div>
-  <div><span class="count" data-target="16">0</span><p>شادیاں</p></div>
+  <div><h3 data-count="53">0</h3><p data-ur="طلباء" data-en="Students"></p></div>
+  <div><h3 data-count="30">0</h3><p data-ur="علاج" data-en="Treatment"></p></div>
+  <div><h3 data-count="16">0</h3><p data-ur="شادیاں" data-en="Weddings"></p></div>
 </section>
 
-<h2 class="section-title" id="services">ہماری خدمات</h2>
+<!-- SERVICES -->
+<section id="services">
+<h2 class="title">ہماری خدمات</h2>
 
 <div class="grid">
-  <div class="card"><img src="https://images.unsplash.com/photo-1588072432836-e10032774350"><h3>تعلیمی معاونت</h3></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1580281657527-47e9f0e3f5b9"><h3>مفت طبی علاج</h3></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1584036561584-b03c19da874c"><h3>لیبارٹری ٹیسٹ</h3></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1606787366850-de6330128bfc"><h3>دسترخوان</h3></div>
-  <div class="card"><img src="https://images.unsplash.com/photo-1584467735871-b41f0fcb6d9f"><h3>فری ایمبولینس</h3></div>
+  <div class="card"><img src="images/lab.jpg"><p>لیبارٹری ٹیسٹ</p></div>
+  <div class="card"><img src="images/medical.jpg"><p>مفت طبی علاج</p></div>
+  <div class="card"><img src="images/marriage.jpg"><p>غریب بچیوں کی شادی</p></div>
+  <div class="card"><img src="images/education.jpg"><p>تعلیمی معاونت</p></div>
+  <div class="card"><img src="images/ration.jpg"><p>دسترخوان (راشن)</p></div>
+  <div class="card"><img src="images/ambulance.jpg"><p>فری ایمبولینس</p></div>
 </div>
+</section>
 
+<!-- CTA -->
 <section class="cta">
   <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
   <button onclick="openDonate()">Donate Now</button>
 </section>
 
+<!-- CONTACT -->
 <footer id="contact">
   <h2>Contact Us</h2>
-
-  <div class="contact-line">
-    <svg viewBox="0 0 24 24"><path fill="#00eaff" d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2"/></svg>
-    +92 301 7211194
-  </div>
-
-  <div class="contact-line">
-    <svg viewBox="0 0 24 24"><path fill="#00eaff" d="M2 6l10 7 10-7"/></svg>
-    datawalyfoundation@gmail.com
-  </div>
+  <p><img src="icons/phone.svg"> +92 301 7211194</p>
+  <p><img src="icons/email.svg"> datawalyfoundation@gmail.com</p>
 </footer>
 
 <!-- DONATE MODAL -->
-<div class="modal" id="donateModal">
-  <div class="modal-box">
-    <h3>Support Our Cause ❤️</h3>
+<div id="donateModal">
+  <div class="modal">
+    <span class="close" onclick="closeDonate()">×</span>
+
     <div class="pay-grid">
-      <div class="pay-box">
-        <b>JazzCash</b><br>
-        Till ID: 982351540
+      <div class="pay">
+        <img src="images/jazzcash.png">
+        <p>Till ID: 982351540</p>
       </div>
-      <div class="pay-box">
-        <b>IBAN</b><br>
-        PK22JCMA1901921017211194
+      <div class="pay">
+        <img src="images/bank.png">
+        <p>IBAN: PK22JCMA1901921017211194</p>
       </div>
     </div>
-    <button class="btn green" onclick="closeDonate()">Close</button>
+
+    <img src="images/jazz-qr.png" class="qr">
+
+    <a class="wa" href="https://wa.me/923017211194" target="_blank">
+      Send Receipt on WhatsApp
+    </a>
   </div>
 </div>
 
-<script>
-/* COUNTER */
-document.querySelectorAll('.count').forEach(el=>{
-  let t=+el.dataset.target,c=0;
-  let i=setInterval(()=>{
-    c++;el.innerText=c;
-    if(c>=t)clearInterval(i);
-  },30);
-});
-
-/* MODAL */
-function openDonate(){document.getElementById("donateModal").style.display="flex"}
-function closeDonate(){document.getElementById("donateModal").style.display="none"}
-
-/* LANGUAGE */
-let urdu=true;
-function toggleLang(){
-  urdu=!urdu;
-  document.getElementById("heroTitle").innerText=
-    urdu?"غریبوں کی خدمت، عزت کے ساتھ":"Serving Humanity With Dignity";
-}
-</script>
-
+<script src="js/main.js"></script>
 </body>
 </html>
