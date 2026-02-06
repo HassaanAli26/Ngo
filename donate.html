@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Donate</title>
+  <link rel="stylesheet" href="donate.css">
+</head>
+<body>
+
+<section class="donation-section">
+  <h2>Support Our Cause ❤️</h2>
+  <p class="subtitle">Select a donation method</p>
+
+  <div class="donation-cards">
+
+    <div class="donation-card glow-green" onclick="showJazz()">
+      <img src="/images/jazzcash.png" alt="JazzCash">
+      <h3>Donate via JazzCash</h3>
+      <span>Instant Mobile Payment</span>
+    </div>
+
+    <div class="donation-card glow-blue" onclick="showBank()">
+      <img src="/images/bank.png" alt="Bank">
+      <h3>Donate via IBAN</h3>
+      <span>Bank Transfer</span>
+    </div>
+
+  </div>
+
+  <!-- JazzCash -->
+  <div id="jazzBox" class="details-box">
+    <img src="/images/jazzcash.png">
+    <p><b>Account Title:</b> Data Waly Foundation</p>
+    <p><b>Mobile:</b> 03XXXXXXXXX</p>
+    <button onclick="openQR()">Show QR Code</button>
+  </div>
+
+  <!-- Bank -->
+  <div id="bankBox" class="details-box">
+    <img src="/images/bank.png">
+    <p><b>Account Title:</b> Data Waly Foundation</p>
+    <p><b>IBAN:</b> PK22JCMA190192101721194</p>
+    <p><b>Bank:</b> Mobilink (JazzCash Bank)</p>
+    <button onclick="copyIBAN()">Copy IBAN</button>
+  </div>
+
+</section>
+
+<!-- QR MODAL -->
+<div id="qrModal" class="modal">
+  <div class="modal-content">
+    <span onclick="closeQR()">×</span>
+    <h3>Scan to Donate</h3>
+    <img src="/images/jazz-qr.png">
+  </div>
+</div>
+
+<script>
+function showJazz(){
+  document.getElementById("jazzBox").style.display = "block";
+  document.getElementById("bankBox").style.display = "none";
+}
+
+function showBank(){
+  document.getElementById("bankBox").style.display = "block";
+  document.getElementById("jazzBox").style.display = "none";
+}
+
+function openQR(){
+  document.getElementById("qrModal").style.display = "flex";
+}
+
+function closeQR(){
+  document.getElementById("qrModal").style.display = "none";
+}
+
+function copyIBAN(){
+  navigator.clipboard.writeText("PK22JCMA190192101721194");
+  alert("IBAN copied successfully");
+}
+</script>
+
+</body>
+</html>
