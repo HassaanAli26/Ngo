@@ -1,147 +1,326 @@
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="ur">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
 
-  <link rel="stylesheet" href="style.css" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial, sans-serif;
+  background:#f4f7fb;
+  color:#222;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  background:#fff;
+  padding:12px 30px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  box-shadow:0 4px 12px rgba(0,0,0,.08);
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+.nav-left{
+  display:flex;
+  align-items:center;
+}
+.logo{
+  height:70px;   /* BIG LOGO */
+}
+.brand{
+  font-size:22px;
+  font-weight:800;
+  margin-left:12px;
+}
+nav a{
+  margin:0 12px;
+  text-decoration:none;
+  color:#222;
+  font-weight:600;
+}
+.lang-btn{
+  padding:6px 14px;
+  background:#00c853;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+.hero{
+  background:
+    linear-gradient(rgba(0,80,140,.7),rgba(0,80,140,.7)),
+    url('/images/hero.jpg') center/cover no-repeat;
+  color:#fff;
+  padding:80px 20px;
+}
+.hero-inner{
+  max-width:1100px;
+  margin:auto;
+}
+.hero h1{
+  font-size:42px;
+  font-weight:800;
+}
+.hero p{
+  font-size:22px;
+  margin-top:12px;
+}
+.hero-buttons{
+  margin-top:30px;
+  display:flex;
+  gap:15px;
+}
+.btn{
+  padding:14px 30px;
+  font-size:16px;
+  font-weight:700;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn-red{background:#e53935;color:#fff}
+.btn-green{background:#43a047;color:#fff}
+
+/* ================= STATS ================= */
+.stats{
+  background:#fff;
+  display:flex;
+  justify-content:space-around;
+  padding:30px 20px;
+  text-align:center;
+}
+.stat span{
+  font-size:34px;
+  font-weight:800;
+  color:#1b5e20;
+  display:block;
+}
+
+/* ================= SERVICES ================= */
+.services{
+  max-width:1100px;
+  margin:60px auto;
+  padding:0 20px;
+}
+.services h2{
+  text-align:center;
+  font-size:32px;
+  margin-bottom:35px;
+}
+.service-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 6px 20px rgba(0,0,0,.08);
+}
+.card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+.card h3{
+  padding:15px;
+  font-size:18px;
+  text-align:center;
+}
+
+/* ================= DONATE ================= */
+.donate-strip{
+  background:linear-gradient(135deg,#00c853,#00e676);
+  color:#fff;
+  text-align:center;
+  padding:70px 20px;
+}
+.donate-strip h2{
+  font-size:32px;
+  margin-bottom:22px;
+}
+.donate-btn{
+  background:#fff;
+  color:#00a152;
+  padding:18px 48px;
+  font-size:22px;
+  font-weight:800;
+  border:none;
+  border-radius:50px;
+  cursor:pointer;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+/* ================= MODAL ================= */
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.8);
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
+}
+.modal-box{
+  background:#081b2f;
+  color:#fff;
+  width:90%;
+  max-width:420px;
+  border-radius:18px;
+  padding:25px;
+  text-align:center;
+}
+.close{
+  position:absolute;
+  right:25px;
+  top:20px;
+  font-size:26px;
+  cursor:pointer;
+}
+.payments{
+  display:flex;
+  gap:15px;
+  margin-top:25px;
+}
+.pay-card{
+  flex:1;
+  background:#041423;
+  border-radius:14px;
+  padding:18px;
+}
+.pay-card img{
+  width:70px;
+  margin-bottom:10px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:768px){
+  nav{display:none;}
+  .hero h1{font-size:30px}
+  .hero p{font-size:18px}
+  .stats{flex-direction:column;gap:20px}
+}
+</style>
 </head>
+
 <body>
 
 <!-- NAVBAR -->
 <header class="navbar">
-  <div class="logo-area">
-    <img src="images/logo.png" class="logo" />
-    <div class="title">
-      <strong>داتا والے فاؤنڈیشن</strong><br/>
-      <span>Data Waly Foundation</span>
-      <div class="location">
-        📍 <span>Sahiwal</span>
-      </div>
-    </div>
+  <div class="nav-left">
+    <img src="/images/logo.png" class="logo">
+    <span class="brand">داتا والے فاؤنڈیشن</span>
   </div>
 
   <nav>
-    <a href="#home">Home</a>
+    <a href="#hero">Home</a>
     <a href="#services">Services</a>
     <a href="#donate">Donate</a>
-    <a href="#contact">Contact</a>
-    <button id="langBtn">EN</button>
   </nav>
+
+  <button class="lang-btn" onclick="toggleLang()">EN</button>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-overlay">
-    <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
-    <p>Data Waly Foundation – Non Profit Organization</p>
+<section class="hero" id="hero">
+  <div class="hero-inner">
+    <h1 id="heroTitle"
+      data-ur="غریبوں کی خدمت، عزت کے ساتھ"
+      data-en="Serving Humanity With Dignity">
+      غریبوں کی خدمت، عزت کے ساتھ
+    </h1>
+
+    <p id="heroSub"
+      data-ur="Data Waly Foundation – داتا والے فاؤنڈیشن"
+      data-en="Data Waly Foundation – Non Profit Organization">
+      Data Waly Foundation – داتا والے فاؤنڈیشن
+    </p>
 
     <div class="hero-buttons">
-      <button class="btn green">مدد حاصل کریں</button>
-      <button class="btn red" onclick="openDonate()">عطیہ دیں</button>
+      <button class="btn btn-red" onclick="scrollToDonate()">عطیہ دیں</button>
+      <button class="btn btn-green" onclick="scrollToServices()">مدد حاصل کریں</button>
     </div>
   </div>
 </section>
 
-<!-- COUNTERS -->
+<!-- STATS -->
 <section class="stats">
-  <div class="stat">
-    <span class="count" data-target="53">0</span>
-    <p>طلباء</p>
-  </div>
-  <div class="stat">
-    <span class="count" data-target="30">0</span>
-    <p>علاج</p>
-  </div>
-  <div class="stat">
-    <span class="count" data-target="16">0</span>
-    <p>شادیاں</p>
-  </div>
+  <div class="stat"><span>500</span> شادیاں</div>
+  <div class="stat"><span>10000</span> علاج</div>
+  <div class="stat"><span>3000</span> طلباء</div>
 </section>
 
 <!-- SERVICES -->
 <section class="services" id="services">
   <h2>ہماری خدمات</h2>
-
-  <div class="cards">
-    <div class="card">
-      <img src="images/lab.jpg">
-      <h3>لیبارٹری ٹیسٹ</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/medical.jpg">
-      <h3>مفت طبی علاج</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/marriage.jpg">
-      <h3>غریب بچیوں کی شادی</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/education.jpg">
-      <h3>تعلیمی معاونت</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/rashan.jpg">
-      <h3>دسترخوان (راشن)</h3>
-    </div>
-
-    <div class="card">
-      <img src="images/ambulance.jpg">
-      <h3>فری ایمبولینس</h3>
-    </div>
+  <div class="service-grid">
+    <div class="card"><img src="/images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
+    <div class="card"><img src="/images/medical.jpg"><h3>مفت طبی علاج</h3></div>
+    <div class="card"><img src="/images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
+    <div class="card"><img src="/images/education.jpg"><h3>تعلیمی معاونت</h3></div>
+    <div class="card"><img src="/images/dastarkhwan.jpg"><h3>دسترخوان (راشن و کھانا)</h3></div>
   </div>
 </section>
 
-<!-- DONATE STRIP -->
+<!-- DONATE -->
 <section class="donate-strip" id="donate">
-  <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
-  <button class="btn blue" onclick="openDonate()">Donate Now</button>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <h2>Contact Us</h2>
-
-  <p>📞 +92 301 7211194</p>
-  <p>📧 datawalyfoundation@gmail.com</p>
+  <h2 id="donateLine"
+    data-ur="آپ کا عطیہ کسی کی زندگی بدل سکتا ہے"
+    data-en="Your donation can change someone's life">
+    آپ کا عطیہ کسی کی زندگی بدل سکتا ہے
+  </h2>
+  <button class="donate-btn" onclick="openDonate()">Donate Now</button>
 </section>
 
 <!-- DONATE MODAL -->
 <div class="modal" id="donateModal">
   <div class="modal-box">
     <span class="close" onclick="closeDonate()">×</span>
-
     <h3>Support Our Cause ❤️</h3>
-
-    <div class="pay-cards">
+    <div class="payments">
       <div class="pay-card">
-        <img src="images/jazzcash.png">
+        <img src="/images/jazzcash.png">
         <p>JazzCash</p>
-        <small>Till ID: 982351540</small>
       </div>
-
       <div class="pay-card">
-        <img src="images/bank.png">
+        <img src="/images/bank.png">
         <p>Bank / IBAN</p>
-        <small>PK22JCMA1901921017211194</small>
       </div>
     </div>
-
-    <img src="images/jazz-qr.png" class="qr">
-
-    <a class="whatsapp"
-       href="https://wa.me/923017211194"
-       target="_blank">
-      📤 Send Receipt on WhatsApp
-    </a>
   </div>
 </div>
 
-<script src="script.js"></script>
+<script>
+function openDonate(){
+  document.getElementById("donateModal").style.display="flex";
+}
+function closeDonate(){
+  document.getElementById("donateModal").style.display="none";
+}
+function scrollToDonate(){
+  document.getElementById("donate").scrollIntoView({behavior:"smooth"});
+}
+function scrollToServices(){
+  document.getElementById("services").scrollIntoView({behavior:"smooth"});
+}
+
+/* LANGUAGE TOGGLE */
+let lang="ur";
+function toggleLang(){
+  lang = lang==="ur" ? "en" : "ur";
+  heroTitle.innerText = heroTitle.dataset[lang];
+  heroSub.innerText   = heroSub.dataset[lang];
+  donateLine.innerText = donateLine.dataset[lang];
+}
+</script>
+
 </body>
 </html>
