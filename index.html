@@ -3,358 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
+<title>Data Waly Foundation</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f7fb;color:#222}
+*{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif}
+html{scroll-behavior:smooth}
+body{background:#f5f7fa}
 
-/* ===== NAVBAR ===== */
-.navbar{
+/* ===== HEADER ===== */
+header{
   background:#fff;
+  padding:12px 20px;
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:12px 26px;
-  box-shadow:0 4px 12px rgba(0,0,0,.1);
-  position:sticky;top:0;z-index:999
+  justify-content:space-between;
+  box-shadow:0 2px 10px rgba(0,0,0,.1)
 }
-.nav-left{display:flex;align-items:center;gap:12px}
-.logo{height:70px}
-.brand{font-weight:900;font-size:22px}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px
+}
+.logo img{height:55px}
+.logo h2{font-size:20px}
 .location{color:#2e7d32;font-weight:700}
+
+/* MENU */
 nav a{
-  margin:0 12px;
+  margin:0 10px;
   text-decoration:none;
-  color:#222;
-  font-weight:700;
-  cursor:pointer
+  color:#333;
+  font-weight:600
 }
 .lang-btn{
-  background:#00c853;
+  background:#2ecc71;
   color:#fff;
   border:none;
-  padding:6px 14px;
+  padding:6px 12px;
   border-radius:6px;
   cursor:pointer
 }
 
 /* ===== HERO ===== */
 .hero{
-  background:linear-gradient(rgba(0,80,140,.7),rgba(0,80,140,.7)),
-  url('/images/hero.jpg') center/cover no-repeat;
+  background:url('images/hero.jpg') center/cover no-repeat;
+  padding:90px 20px;
   color:#fff;
-  padding:80px 20px
+  position:relative
 }
-.hero-inner{max-width:1100px;margin:auto}
-.hero h1{font-size:42px;font-weight:900}
-.hero p{font-size:20px;margin-top:10px}
-.hero-buttons{margin-top:25px;display:flex;gap:15px}
-.btn{
-  padding:14px 30px;
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:rgba(0,0,0,.45)
+}
+.hero-content{
+  position:relative;
+  max-width:600px
+}
+.hero h1{font-size:34px;margin-bottom:10px}
+.hero p{margin-bottom:20px}
+.hero button{
+  padding:12px 20px;
   border:none;
   border-radius:8px;
-  font-weight:800;
+  font-size:16px;
   cursor:pointer
 }
-.btn-red{background:#e53935;color:#fff}
-.btn-green{background:#43a047;color:#fff}
+.btn-donate{background:#e74c3c;color:#fff}
+.btn-help{background:#27ae60;color:#fff}
 
-/* ===== STATS ===== */
+/* ===== COUNTERS ===== */
 .stats{
-  background:#fff;
   display:flex;
   justify-content:space-around;
-  padding:30px 20px;
+  background:#fff;
+  padding:30px 10px
 }
-.stat{text-align:center}
-.stat span{
-  display:block;
-  font-size:36px;
-  font-weight:900;
-  color:#1b5e20
+.stat{
+  text-align:center;
+  font-size:22px;
+  color:#2e7d32
 }
-
-/* ===== MOBILE STATS FIX ===== */
-@media(max-width:768px){
-  .stats{
-    flex-direction:row;
-    justify-content:space-between;
-    padding:20px 10px
-  }
-  .stat{flex:1}
-  .stat span{font-size:32px}
-}
+.stat span{display:block;font-size:14px;color:#444}
 
 /* ===== SERVICES ===== */
 .services{
-  max-width:1100px;
-  margin:60px auto;
-  padding:0 20px
+  padding:40px 20px;
 }
-.services h2{
-  text-align:center;
-  font-size:32px;
-  margin-bottom:30px
-}
-.grid{
+.services h2{text-align:center;margin-bottom:25px}
+.cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
   gap:20px
 }
 .card{
   background:#fff;
   border-radius:14px;
   overflow:hidden;
-  box-shadow:0 6px 18px rgba(0,0,0,.12);
-  transition:.4s
-}
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px rgba(0,0,0,.25)
+  box-shadow:0 6px 20px rgba(0,0,0,.1)
 }
 .card img{
   width:100%;
   height:170px;
   object-fit:cover;
-  object-position:center top; /* FACE FIX */
+  object-position:center
 }
-.card h3{
-  padding:15px;
+.card.dastarkhwan img{object-position:center 20%}
+.card h3{text-align:center;padding:10px}
+
+/* ===== CTA ===== */
+.cta{
+  background:linear-gradient(135deg,#2ecc71,#1abc9c);
+  padding:60px 20px;
+  text-align:center;
+  color:#fff
+}
+.cta button{
+  margin-top:15px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
   font-size:18px;
-  text-align:center
+  cursor:pointer
 }
 
-/* ===== DONATE STRIP ===== */
-.donate-strip{
-  background:linear-gradient(135deg,#00c853,#00e676);
+/* ===== CONTACT ===== */
+.contact{
+  background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
   color:#fff;
-  text-align:center;
-  padding:70px 20px
+  padding:40px 20px;
+  text-align:center
 }
-.donate-strip h2{font-size:32px;margin-bottom:20px}
-.donate-btn{
-  background:#fff;
-  color:#00a152;
-  padding:18px 48px;
-  font-size:22px;
-  font-weight:900;
-  border:none;
-  border-radius:50px;
-  cursor:pointer;
-  box-shadow:0 10px 30px rgba(0,0,0,.35)
-}
+.contact a{color:#fff;text-decoration:none;font-weight:600}
 
 /* ===== MODAL ===== */
 .modal{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.85);
-  align-items:center;
+  background:rgba(0,0,0,.7);
   justify-content:center;
-  z-index:2000
+  align-items:center;
+  z-index:99
 }
 .modal-box{
-  background:#081b2f;
-  color:#fff;
-  width:90%;
-  max-width:440px;
-  border-radius:20px;
+  background:#0b2545;
   padding:25px;
+  border-radius:20px;
+  width:320px;
+  color:#fff;
   position:relative;
-  animation:pop .4s ease;
-  border:1px solid rgba(255,255,255,.1);
-  box-shadow:
-    0 0 30px rgba(0,255,150,.4),
-    0 0 80px rgba(0,150,255,.2)
-}
-@keyframes pop{
-  from{transform:scale(.7);opacity:0}
-  to{transform:scale(1);opacity:1}
+  text-align:center
 }
 .close{
   position:absolute;
-  right:18px;
-  top:12px;
-  font-size:26px;
-  cursor:pointer
+  right:15px;top:10px;
+  cursor:pointer;
+  font-size:22px
 }
-
-/* Charity icon */
-.charity-icon{
-  font-size:46px;
-  margin-bottom:8px;
-  animation:pulse 2s infinite
-}
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.1)}
-  100%{transform:scale(1)}
-}
-
 .payments{
   display:flex;
   gap:15px;
-  margin-top:20px
+  justify-content:center;
+  margin-top:15px
 }
 .pay-card{
-  flex:1;
-  background:linear-gradient(145deg,#0b2540,#041423);
-  padding:18px;
-  border-radius:16px;
-  cursor:pointer;
-  text-align:center;
-  box-shadow:
-    inset 0 0 10px rgba(255,255,255,.05),
-    0 15px 40px rgba(0,0,0,.6);
-  transition:.4s;
-}
-.pay-card:hover{
-  transform:translateY(-6px) scale(1.03);
-  box-shadow:0 25px 60px rgba(0,0,0,.85)
-}
-.pay-card img{width:70px;margin-bottom:8px}
-
-.details{
-  display:none;
-  margin-top:20px;
-  background:#041423;
-  padding:16px;
-  border-radius:14px
-}
-.details img{
-  width:100%;
-  border-radius:12px;
-  margin-top:10px
-}
-.details button{
-  width:100%;
-  margin-top:12px;
+  background:#132f4c;
   padding:12px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(135deg,#00c853,#00e5ff);
-  color:#003;
-  font-weight:900;
-  letter-spacing:.5px;
-  cursor:pointer;
-  box-shadow:0 8px 25px rgba(0,255,200,.6);
-  transition:.3s
+  border-radius:14px;
+  width:120px
 }
-.details button:hover{
-  transform:scale(1.05);
-  box-shadow:0 12px 40px rgba(0,255,200,.9)
+.pay-card img{
+  width:70px;
+  height:70px;
+  object-fit:contain;
+  background:#fff;
+  border-radius:10px;
+  padding:5px
 }
 
-/* ===== CONTACT ===== */
-.contact{
-  background:linear-gradient(135deg,#0b5ed7,#00c853);
-  color:#fff;
-  text-align:center;
-  padding:80px 20px
+/* PARROT ANIMATION */
+.charity-animation img{
+  width:140px;
+  margin-bottom:10px;
+  animation:float 3s infinite
 }
-.contact h2{font-size:36px;margin-bottom:18px}
-.contact a{
-  color:#fff;
-  text-decoration:none;
-  font-weight:800
+@keyframes float{
+  0%{transform:translateY(0)}
+  50%{transform:translateY(-6px)}
+  100%{transform:translateY(0)}
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:768px){
-  nav{display:none}
-  .hero h1{font-size:30px}
-  .hero p{font-size:18px}
+/* MOBILE FIX */
+@media(max-width:600px){
+  .stats{flex-direction:column;gap:15px}
+  .hero h1{font-size:26px}
 }
 </style>
 </head>
 
 <body>
 
-<header class="navbar">
-  <div class="nav-left">
-    <img src="/images/logo.png" class="logo">
+<header>
+  <div class="logo">
+    <img src="images/logo.png">
     <div>
-      <div class="brand">داتا والے فاؤنڈیشن</div>
+      <h2>داتا والے فاؤنڈیشن</h2>
       <div class="location">📍 Sahiwal</div>
     </div>
   </div>
   <nav>
-    <a onclick="scrollHero()">Home</a>
-    <a onclick="scrollServices()">Services</a>
-    <a onclick="openDonate()">Donate</a>
-    <a onclick="scrollContact()">Contact</a>
+    <a href="#">Home</a>
+    <a href="#services">Services</a>
+    <a href="#donate">Donate</a>
+    <a href="#contact">Contact</a>
+    <button class="lang-btn" onclick="toggleLang()">EN</button>
   </nav>
-  <button class="lang-btn">EN</button>
 </header>
 
-<section class="hero" id="hero">
-  <div class="hero-inner">
-    <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
+<section class="hero">
+  <div class="hero-content">
+    <h1 id="title">غریبوں کی خدمت، عزت کے ساتھ</h1>
     <p>Data Waly Foundation – Non Profit Organization</p>
-    <div class="hero-buttons">
-      <button class="btn btn-red" onclick="openDonate()">عطیہ دیں</button>
-      <button class="btn btn-green" onclick="scrollServices()">مدد حاصل کریں</button>
-    </div>
+    <button class="btn-donate" onclick="openDonate()">عطیہ دیں</button>
+    <button class="btn-help">مدد حاصل کریں</button>
   </div>
 </section>
 
 <section class="stats">
-  <div class="stat"><span class="counter" data-target="16">0</span> شادیاں</div>
-  <div class="stat"><span class="counter" data-target="30">0</span> علاج</div>
-  <div class="stat"><span class="counter" data-target="53">0</span> طلباء</div>
+  <div class="stat" data-target="16">0<span>شادیاں</span></div>
+  <div class="stat" data-target="30">0<span>علاج</span></div>
+  <div class="stat" data-target="53">0<span>طلباء</span></div>
 </section>
 
 <section class="services" id="services">
   <h2>ہماری خدمات</h2>
-  <div class="grid">
-    <div class="card"><img src="/images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
-    <div class="card"><img src="/images/medical.jpg"><h3>مفت طبی علاج</h3></div>
-    <div class="card"><img src="/images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
-    <div class="card"><img src="/images/education.jpg"><h3>تعلیمی معاونت</h3></div>
-    <div class="card"><img src="/images/dastarkhwan.jpg"><h3>دسترخوان (راشن و کھانا)</h3></div>
-    <div class="card"><img src="/images/ambulance.jpg"><h3>فری ایمبولینس سروس</h3></div>
+  <div class="cards">
+    <div class="card"><img src="images/marriage.jpg"><h3>غریب بچیوں کی شادی</h3></div>
+    <div class="card"><img src="images/medical.jpg"><h3>مفت طبی علاج</h3></div>
+    <div class="card"><img src="images/lab.jpg"><h3>لیبارٹری ٹیسٹ</h3></div>
+    <div class="card"><img src="images/education.jpg"><h3>تعلیمی معاونت</h3></div>
+    <div class="card dastarkhwan"><img src="images/dastarkhwan.jpg"><h3>دسترخوان</h3></div>
+    <div class="card"><img src="images/ambulance.jpg"><h3>فری ایمبولینس</h3></div>
   </div>
 </section>
 
-<section class="donate-strip" id="donate">
+<section class="cta" id="donate">
   <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
-  <button class="donate-btn" onclick="openDonate()">Donate Now</button>
+  <button onclick="openDonate()">Donate Now</button>
 </section>
-
-<div class="modal" id="donateModal">
-  <div class="modal-box">
-    <span class="close" onclick="closeDonate()">×</span>
-    <div class="charity-icon">🥣👩‍👧</div>
-    <h3>Support Our Cause ❤️</h3>
-
-    <div class="payments">
-      <div class="pay-card" onclick="showJazz()">
-        <img src="/images/jazzcash.png">
-        <p>JazzCash</p>
-      </div>
-      <div class="pay-card" onclick="showBank()">
-        <img src="/images/bank.png">
-        <p>Bank / IBAN</p>
-      </div>
-    </div>
-
-    <div id="jazz" class="details">
-      <p><b>Account Title:</b> Data Waly Foundation</p>
-      <p><b>Mobile:</b> 0301-7211194</p>
-      <p><b>Till ID:</b> 982 351 540</p>
-      <img src="/images/jazz-qr.png">
-      <button onclick="sendWA('JazzCash')">Send Receipt on WhatsApp</button>
-    </div>
-
-    <div id="bank" class="details">
-      <p><b>Account Title:</b> Data Waly Foundation</p>
-      <p><b>IBAN:</b> PK22JCMA1901921017211194</p>
-      <button onclick="sendWA('Bank Transfer')">Send Receipt on WhatsApp</button>
-    </div>
-  </div>
-</div>
 
 <section class="contact" id="contact">
   <h2>Contact Us</h2>
@@ -362,30 +259,59 @@ nav a{
   <p>📧 <a href="mailto:datawalyfoundation@gmail.com">datawalyfoundation@gmail.com</a></p>
 </section>
 
+<!-- DONATION MODAL -->
+<div class="modal" id="donateModal">
+  <div class="modal-box">
+    <span class="close" onclick="closeDonate()">×</span>
+
+    <div class="charity-animation">
+      <img src="images/charity-animation.gif">
+    </div>
+
+    <h3>Support Our Cause ❤️</h3>
+
+    <div class="payments">
+      <div class="pay-card">
+        <img src="images/jazzcash.png">
+        <p>JazzCash</p>
+        <small>Till: 982351540</small>
+      </div>
+      <div class="pay-card">
+        <img src="images/bank.png">
+        <p>IBAN</p>
+        <small>PK22JCMA1901921017211194</small>
+      </div>
+    </div>
+
+    <img src="images/jazz-qr.png" style="width:100%;margin-top:15px;border-radius:10px">
+
+    <p style="margin-top:10px">
+      <a href="https://wa.me/923017211194" style="color:#2ecc71">
+        📤 Send Receipt on WhatsApp
+      </a>
+    </p>
+  </div>
+</div>
+
 <script>
-function openDonate(){donateModal.style.display="flex"}
-function closeDonate(){donateModal.style.display="none"}
-function showJazz(){jazz.style.display="block";bank.style.display="none"}
-function showBank(){bank.style.display="block";jazz.style.display="none"}
-function scrollContact(){contact.scrollIntoView({behavior:'smooth'})}
-function scrollServices(){services.scrollIntoView({behavior:'smooth'})}
-function scrollHero(){hero.scrollIntoView({behavior:'smooth'})}
-function sendWA(type){
-  const msg=`Assalamualaikum,%0AI donated via ${type}.%0AData Waly Foundation`;
-  window.open("https://wa.me/923017211194?text="+msg,"_blank");
-}
+function openDonate(){document.getElementById('donateModal').style.display='flex'}
+function closeDonate(){document.getElementById('donateModal').style.display='none'}
 
 /* COUNTER ANIMATION */
-document.querySelectorAll('.counter').forEach(c=>{
-  const t=+c.dataset.target;
-  let i=0;
-  const step=Math.ceil(t/50);
-  const run=setInterval(()=>{
-    i+=step;
-    if(i>=t){c.innerText=t;clearInterval(run)}
-    else c.innerText=i;
-  },40);
-});
+document.querySelectorAll('.stat').forEach(stat=>{
+  let target=+stat.dataset.target;
+  let count=0;
+  let inc=target/50;
+  let interval=setInterval(()=>{
+    count+=inc;
+    if(count>=target){count=target;clearInterval(interval)}
+    stat.childNodes[0].nodeValue=Math.floor(count)
+  },40)
+})
+
+function toggleLang(){
+  alert("English version coming next 🔜");
+}
 </script>
 
 </body>
