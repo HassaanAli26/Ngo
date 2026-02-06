@@ -1,19 +1,23 @@
-document.querySelectorAll(".card").forEach(card=>{
-  card.addEventListener("mouseenter",()=>{
-    card.style.transform="translateY(-8px)";
-  });
-  card.addEventListener("mouseleave",()=>{
-    card.style.transform="translateY(0)";
-  });
+// COUNTER ANIMATION
+document.querySelectorAll('.count').forEach(counter=>{
+  let target=+counter.dataset.target;
+  let i=0;
+  let interval=setInterval(()=>{
+    i++;
+    counter.innerText=i;
+    if(i>=target) clearInterval(interval);
+  },40);
 });
-<script>
-function showJazz() {
-  document.getElementById("jazz").style.display = "block";
-  document.getElementById("bank").style.display = "none";
+
+// MODAL
+function openDonate(){
+  document.getElementById("donateModal").style.display="flex";
+}
+function closeDonate(){
+  document.getElementById("donateModal").style.display="none";
 }
 
-function showBank() {
-  document.getElementById("bank").style.display = "block";
-  document.getElementById("jazz").style.display = "none";
-}
-</script>
+// LANGUAGE TOGGLE (simple)
+document.getElementById("langBtn").onclick=()=>{
+  alert("Next step: Full Urdu/English JSON based switch (stable)");
+};
