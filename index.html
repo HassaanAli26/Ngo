@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data Waly Foundation</title>
-<link rel="stylesheet" href="css/style.css">
-</head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>داتا والے فاؤنڈیشن | Data Waly Foundation</title>
 
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
 
-<!-- NAV -->
-<header class="nav">
-  <div class="nav-left">
-    <img src="images/logo.png" class="logo">
-    <div>
-      <h1>داتا والے فاؤنڈیشن</h1>
-      <span class="en">Data Waly Foundation</span>
-      <p class="loc"><img src="icons/location.svg"> Sahiwal</p>
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo-area">
+    <img src="images/logo.png" class="logo" />
+    <div class="title">
+      <strong>داتا والے فاؤنڈیشن</strong><br/>
+      <span>Data Waly Foundation</span>
+      <div class="location">
+        📍 <span>Sahiwal</span>
+      </div>
     </div>
   </div>
 
   <nav>
     <a href="#home">Home</a>
     <a href="#services">Services</a>
-    <a href="#donate" onclick="openDonate()">Donate</a>
+    <a href="#donate">Donate</a>
     <a href="#contact">Contact</a>
     <button id="langBtn">EN</button>
   </nav>
@@ -31,78 +33,115 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <img src="images/hero.jpg">
-  <div class="hero-text">
-    <h2 data-ur="غریبوں کی خدمت، عزت کے ساتھ"
-        data-en="Serving Humanity With Dignity">
-    </h2>
+  <div class="hero-overlay">
+    <h1>غریبوں کی خدمت، عزت کے ساتھ</h1>
     <p>Data Waly Foundation – Non Profit Organization</p>
 
-    <div class="hero-btns">
-      <button class="green">مدد حاصل کریں</button>
-      <button class="red" onclick="openDonate()">عطیہ دیں</button>
+    <div class="hero-buttons">
+      <button class="btn green">مدد حاصل کریں</button>
+      <button class="btn red" onclick="openDonate()">عطیہ دیں</button>
     </div>
   </div>
 </section>
 
 <!-- COUNTERS -->
 <section class="stats">
-  <div><h3 data-count="53">0</h3><p data-ur="طلباء" data-en="Students"></p></div>
-  <div><h3 data-count="30">0</h3><p data-ur="علاج" data-en="Treatment"></p></div>
-  <div><h3 data-count="16">0</h3><p data-ur="شادیاں" data-en="Weddings"></p></div>
+  <div class="stat">
+    <span class="count" data-target="53">0</span>
+    <p>طلباء</p>
+  </div>
+  <div class="stat">
+    <span class="count" data-target="30">0</span>
+    <p>علاج</p>
+  </div>
+  <div class="stat">
+    <span class="count" data-target="16">0</span>
+    <p>شادیاں</p>
+  </div>
 </section>
 
 <!-- SERVICES -->
-<section id="services">
-<h2 class="title">ہماری خدمات</h2>
+<section class="services" id="services">
+  <h2>ہماری خدمات</h2>
 
-<div class="grid">
-  <div class="card"><img src="images/lab.jpg"><p>لیبارٹری ٹیسٹ</p></div>
-  <div class="card"><img src="images/medical.jpg"><p>مفت طبی علاج</p></div>
-  <div class="card"><img src="images/marriage.jpg"><p>غریب بچیوں کی شادی</p></div>
-  <div class="card"><img src="images/education.jpg"><p>تعلیمی معاونت</p></div>
-  <div class="card"><img src="images/ration.jpg"><p>دسترخوان (راشن)</p></div>
-  <div class="card"><img src="images/ambulance.jpg"><p>فری ایمبولینس</p></div>
-</div>
+  <div class="cards">
+    <div class="card">
+      <img src="images/lab.jpg">
+      <h3>لیبارٹری ٹیسٹ</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/medical.jpg">
+      <h3>مفت طبی علاج</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/marriage.jpg">
+      <h3>غریب بچیوں کی شادی</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/education.jpg">
+      <h3>تعلیمی معاونت</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/rashan.jpg">
+      <h3>دسترخوان (راشن)</h3>
+    </div>
+
+    <div class="card">
+      <img src="images/ambulance.jpg">
+      <h3>فری ایمبولینس</h3>
+    </div>
+  </div>
 </section>
 
-<!-- CTA -->
-<section class="cta">
+<!-- DONATE STRIP -->
+<section class="donate-strip" id="donate">
   <h2>آپ کا عطیہ کسی کی زندگی بدل سکتا ہے</h2>
-  <button onclick="openDonate()">Donate Now</button>
+  <button class="btn blue" onclick="openDonate()">Donate Now</button>
 </section>
 
 <!-- CONTACT -->
-<footer id="contact">
+<section class="contact" id="contact">
   <h2>Contact Us</h2>
-  <p><img src="icons/phone.svg"> +92 301 7211194</p>
-  <p><img src="icons/email.svg"> datawalyfoundation@gmail.com</p>
-</footer>
+
+  <p>📞 +92 301 7211194</p>
+  <p>📧 datawalyfoundation@gmail.com</p>
+</section>
 
 <!-- DONATE MODAL -->
-<div id="donateModal">
-  <div class="modal">
+<div class="modal" id="donateModal">
+  <div class="modal-box">
     <span class="close" onclick="closeDonate()">×</span>
 
-    <div class="pay-grid">
-      <div class="pay">
+    <h3>Support Our Cause ❤️</h3>
+
+    <div class="pay-cards">
+      <div class="pay-card">
         <img src="images/jazzcash.png">
-        <p>Till ID: 982351540</p>
+        <p>JazzCash</p>
+        <small>Till ID: 982351540</small>
       </div>
-      <div class="pay">
+
+      <div class="pay-card">
         <img src="images/bank.png">
-        <p>IBAN: PK22JCMA1901921017211194</p>
+        <p>Bank / IBAN</p>
+        <small>PK22JCMA1901921017211194</small>
       </div>
     </div>
 
     <img src="images/jazz-qr.png" class="qr">
 
-    <a class="wa" href="https://wa.me/923017211194" target="_blank">
-      Send Receipt on WhatsApp
+    <a class="whatsapp"
+       href="https://wa.me/923017211194"
+       target="_blank">
+      📤 Send Receipt on WhatsApp
     </a>
   </div>
 </div>
 
-<script src="js/main.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
